@@ -135,11 +135,11 @@ def transliteration_cleaners(text):
 #  text = collapse_whitespace(text)
 #  return text
 
-  def french_cleaners(text):
-    '''Pipeline for French text. There is no need to expand numbers, phonemizer already does that'''
-    text = lowercase(text)
-    text = expand_abbreviations(text)
-    text = replace_symbols(text)
-    text = remove_aux_symbols(text)
-    text = collapse_whitespace(text)
-    return text
+def french_cleaners(text):
+'''Pipeline for French text.'''
+text = lowercase(text)
+text = expand_abbreviations(text)
+text = replace_symbols(text)
+text = remove_aux_symbols(text)
+text = collapse_whitespace(text)
+return text

@@ -152,7 +152,7 @@ def nvidia_tts_utils():
             d = []
             for i,text in enumerate(texts):
                 d.append(torch.IntTensor(
-                    Processing.text_to_sequence(text, ['english_cleaners'])[:]))
+                    Processing.text_to_sequence(text, ['french_cleaners'])[:]))
 
             text_padded, input_lengths = Processing.pad_sequences(d)
             if not cpu_run:

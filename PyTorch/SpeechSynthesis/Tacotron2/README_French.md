@@ -8,19 +8,23 @@ For every file in your dataset you'll have a
 FILE PATH and a Quote separated by a |
 
 3.
+Clean your text according to the language (in french do not use ASCII). Then pass it to a french phonemizer
+
+4. 
 Split that filelist into 2/3 files, a train list, validation list and test list.
 I normally do 95% files into the train, 5% into validation and ignore the test list.
 
-4.
+5
 Once you have the filelists ready, update
 https://github.com/NVIDIA/tacotron2/blob/master/hparams.py#L28#L29
 To point to your train and validation filelists.
 
-5.
+6
 Since your using another language, you will need to update the symbols list.
 Change,
-_punctuation and _letters
-to include all the symbols you will use from your language.
+_punctuation and _letters Phonemes to include all the symbols you will use from your language.
+
+
 6.
 update the text_cleaners hparam for your language.
 
