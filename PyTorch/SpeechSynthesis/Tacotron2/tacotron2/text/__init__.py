@@ -34,9 +34,11 @@ def text_to_sequence(text, cleaner_names):
 #    m = _curly_re.match(text)
 
     if not m:
-      sequence += _symbols_to_sequence(_clean_text(text, cleaner_names))
+      #sequence += _symbols_to_sequence(_clean_text(text, cleaner_names))
+      sequence += _symbols_to_sequence(text)
       break
-    sequence += _symbols_to_sequence(_clean_text(m.group(1), cleaner_names))
+    #sequence += _symbols_to_sequence(_clean_text(m.group(1), cleaner_names))
+    sequence += _symbols_to_sequence(m.group(1))
 #    sequence += _arpabet_to_sequence(m.group(2))
     text = m.group(3)
 

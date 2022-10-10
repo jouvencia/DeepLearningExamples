@@ -103,8 +103,11 @@ def convert_to_ascii(text):
 def replace_symbols(text):
   text = text.replace(';', ',')
   text = text.replace('-', ' ')
+  text = text.replace('–', '')
+  text = text.replace('—', '')
   text = text.replace(':', ',')
   text = text.replace('&', ' et ')
+  text= text.lstrip()
   return text
 
 def remove_aux_symbols(text):
@@ -138,7 +141,7 @@ def transliteration_cleaners(text):
 def french_cleaners(text):
 '''Pipeline for French text.'''
 text = lowercase(text)
-text = expand_abbreviations(text)
+#text = expand_abbreviations(text)
 text = replace_symbols(text)
 text = remove_aux_symbols(text)
 text = collapse_whitespace(text)
