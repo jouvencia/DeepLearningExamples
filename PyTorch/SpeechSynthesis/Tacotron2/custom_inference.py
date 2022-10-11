@@ -42,6 +42,9 @@ import dllogger as DLLogger
 from dllogger import StdOutBackend, JSONStreamBackend, Verbosity
 
 from waveglow.denoiser import Denoiser
+from phonemizer import phonemize
+from phonemizer.separator import Separator
+from tacotron2.text.cleaners import *
 
 def parse_args(parser):
     """
@@ -221,7 +224,17 @@ def main():
         
         #f = open('/DeepLearningExamples/PyTorch/SpeechSynthesis/Tacotron2/phrases/phrase.txt', 'r')
         #f = open(args.input, 'r')
-        texts = ["Enfin une phrase que je comprends, j'aimerais bien que ça marche ce générateur de voix."]
+        texts =[]
+        raw_text = french_clearners("Enfin une phrase que je comprends, j'aimerais bien que ça marche ce générateur de voix.")
+        texts.append(phonemize(
+            raw_text,
+            language='fr-fr',
+            backend='espeak',
+            separator=Separator(phone=None, word=' ', syllable='None'),
+            strip=True,
+            preserve_punctuation=True,
+            njobs=4))
+
     except() as e:
         print(args.input)
         print(e)

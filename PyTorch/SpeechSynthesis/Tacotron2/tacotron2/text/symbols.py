@@ -18,7 +18,7 @@ _phonemes = "ɑɐɒæɓʙβɔɕçɗɖðʤəɘɚɛɜɝɞɟʄɡɠɢʛɦɧħɥʜɨ�
 #_arpabet = ['@' + s for s in cmudict.valid_symbols]
 
 # Export all symbols:
-symbols = list(set([pad, eos, bos] + list(_special) + list(_punctuation) + list(_letters) + list(_phonemes)))
+symbols = list(set([_pad, _eos, _bos] + list(_special) + list(_punctuation) + list(_letters) + list(_phonemes)))
 
 
 #'''
